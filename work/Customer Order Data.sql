@@ -21,7 +21,7 @@ INNER JOIN
 WHERE
 (CONVERT(date, dh.date_ordered) Between '2021-01-01 00:00:00.000' and '2024-07-03 00:00:00.000') 
 AND ih.invoice_type = '1'
-AND dh.customercode IN ('LIDL2', 'LIDLC', 'LIDLM', 'LIDLN', 'MOGCH', 'MOGMU', 'MOGNC', 'MOGNE')
+AND dh.customercode IN (--add customer code(s))
 GROUP BY
     ds.product,
     inv.description,
@@ -29,24 +29,6 @@ GROUP BY
 	dh.customername
 ORDER BY
     dh.date_ordered ASC
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 SELECT
 	FORMAT(dh.date_ordered, 'dd/MM/yyyy') as 'Date Ordered',
@@ -73,7 +55,7 @@ WHERE
 AND ih.invoice_type = '1'
 
 AND dh.customercode IN ('ALD03', 'ALD04')
---AND dh.customercode IN ('LIDL2', 'LIDLC', 'LIDLM', 'LIDLN', 'MOGCH', 'MOGMU', 'MOGNC', 'MOGNE')
+AND dh.customercode IN (-- add customer code(s))
 GROUP BY
     ds.product,
     inv.description,
